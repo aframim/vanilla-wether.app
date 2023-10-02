@@ -1,13 +1,89 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
-    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+    <title>vanilla-weather-app</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Hello world</h1>
+    <div class="container">
+      <h1>Weather forecast for your city</h1>
+      <h2 id="city-name"></h2>
+      <h3 id="temperature-display"></h3>
+      <h4></h4>
+      <div class="days">
+        <div class="row">
+          <div class="col">
+            Mon
+            <br />
+            🌧️
+          </div>
+          <div class="col">
+            Tue
+            <br />
+            🌤️
+          </div>
+          <div class="col">
+            Wed
+            <br />
+            ☀️
+          </div>
+          <div class="col">
+            Thu
+            <br />
+            ☀️
+          </div>
+          <div class="col">
+            Fri
+            <br />
+            🌧️
+          </div>
+          <div class="col">
+            Sat
+            <br />
+            🌤️
+          </div>
+          <div class="col">
+            Sun
+            <br />
+            🌧️
+          </div>
+        </div>
+      </div>
+      <div class="temperatures">
+        <div class="row">
+          <div class="col">17°</div>
+          <div class="col">21°</div>
+          <div class="col">22°</div>
+          <div class="col">23°</div>
+          <div class="col">19°</div>
+          <div class="col">14°</div>
+          <div class="col">15°</div>
+        </div>
+      </div>
+      <form id="search-form">
+        <input
+          type="text"
+          placeholder="Enter city name..."
+          id="city-input"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <input type="submit" value="Search" id="search-button" />
+        <button>Get Curent Location</button>
+      </form>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
