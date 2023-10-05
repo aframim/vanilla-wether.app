@@ -39,8 +39,8 @@ function search(event) {
   let cityInput = document.getElementById("city-input");
   let cityName = document.getElementById("city-name");
   cityName.innerHTML = cityInput.value;
-  let apiKey = "c819171fe0abdc14039af4ef5dda283b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
+  let apiKey = "39o483e0c08f21f9ct0a8cbbad45f55a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput.value}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
 
   axios.get(apiUrl).then(showPosition);
@@ -52,21 +52,25 @@ searchCity.addEventListener("submit", search);
 
 function showPosition(response) {
   let h3 = document.getElementById("temperature-display");
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.temperature.current);
   h3.innerHTML = `${temperature}°C`;
+  let cityName = response.data.city;
   let h2 = document.getElementById("city-name");
   console.log(response.data);
-  h2.innerHTML = `${response.data.name}`;
+  h2.innerHTML = cityName;
 }
 
 //location
 
 function retrievePosition(position) {
-  let apiKey = "c819171fe0abdc14039af4ef5dda283b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "39o483e0c08f21f9ct0a8cbbad45f55a";
+  let latitude = position.coordinates.latitude;
+  let longitude = position.coordinates.longitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(showPosition);
 }
+
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }

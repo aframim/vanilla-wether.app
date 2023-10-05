@@ -10,6 +10,7 @@
   margin-bottom: 50px;
   opacity: 0.8;
   position: relative;
+  max-width: 600px;
 }
 .days {
   font-size: x-large;
