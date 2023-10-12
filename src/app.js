@@ -1,4 +1,5 @@
 //Get current date and time
+let celsiusTemperature = null;
 let now = new Date();
 let h4 = document.querySelector("h4");
 let date = now.getDate();
@@ -74,7 +75,7 @@ function retrievePosition(position) {
 }
 
 function getCurrentPosition(event) {
-event.preventDefault();
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
@@ -97,10 +98,23 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsiusTemperature = null;
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+window.addEventListener("load", () => {
+  search({ preventDefault: () => {} });
+});
+
+// Function to fetch weather data for Tehran
+function fetchWeatherForTehran() {
+  let apiKey = "39o483e0c08f21f9ct0a8cbbad45f55a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Tehran&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showPosition);
+}
+
+// Call the fetchWeatherForTehran function on page load
+window.addEventListener("load", fetchWeatherForTehran);
