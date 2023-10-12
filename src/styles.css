@@ -64,11 +64,18 @@ h4 {
 button {
   border: 1px solid black;
   border-radius: 4px;
-  box-shadow:inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 input {
   border: 1px solid black;
   border-radius: 4px;
-    box-shadow:inset 2px 2px 4px rgba(0, 0, 0, 0.2);
-
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.active {
+  color: black;
+  cursor:default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration:none ;
 }

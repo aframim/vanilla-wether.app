@@ -88,6 +88,10 @@ function displayFahrenheitTemperature(event) {
   event.preventDefault();
   //add function to display weather in Fahrentheit
   let temperatureElement = document.querySelector("#temperature-display");
+  //Removing active class from celsius-link and add Fahrenehit
+  celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
@@ -95,6 +99,8 @@ function displayFahrenheitTemperature(event) {
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature-display");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
@@ -118,3 +124,4 @@ function fetchWeatherForTehran() {
 
 // Call the fetchWeatherForTehran function on page load
 window.addEventListener("load", fetchWeatherForTehran);
+
