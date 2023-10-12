@@ -66,14 +66,15 @@ function showPosition(response) {
 
 function retrievePosition(position) {
   let apiKey = "39o483e0c08f21f9ct0a8cbbad45f55a";
-  let latitude = position.coordinates.latitude;
-  let longitude = position.coordinates.longitude;
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(showPosition);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
