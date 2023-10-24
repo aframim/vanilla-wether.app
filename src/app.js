@@ -51,6 +51,20 @@ let searchCity = document.getElementById("search-form");
 searchCity.addEventListener("submit", search);
 
 //Temperature
+function weatherCondition(response) {
+  let descriptionElement = document.getElementsByClassName("description")[0];
+  let humidityElement = document.getElementsByClassName("humidity")[0];
+  let windElement = document.getElementsByClassName("wind")[0];
+  let iconElement = document.getElementById("icon");
+ 
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  windElement.innerHTML = response.data.wind.speed;
+   iconElement.setAttribute(
+     "src",
+     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+   );
+}
 
 function showPosition(response) {
   celsiusTemperature = response.data.temperature.current;
@@ -61,6 +75,7 @@ function showPosition(response) {
   let h2 = document.getElementById("city-name");
   console.log(response.data);
   h2.innerHTML = cityName;
+  weatherCondition(response);
 }
 
 //location
@@ -90,7 +105,7 @@ function displayFahrenheitTemperature(event) {
   let temperatureElement = document.querySelector("#temperature-display");
   //Removing active class from celsius-link and add Fahrenehit
   celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
+  fahrenheitLink.classList.add("active");
 
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
@@ -124,4 +139,3 @@ function fetchWeatherForTehran() {
 
 // Call the fetchWeatherForTehran function on page load
 window.addEventListener("load", fetchWeatherForTehran);
-

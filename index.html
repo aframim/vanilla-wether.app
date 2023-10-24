@@ -18,11 +18,45 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather forecast for your city</h1>
+      <h1>Weather Forecast For Your City</h1>
+      <form id="search-form">
+        <input
+          type="text"
+          placeholder="Enter City Name..."
+          id="city-input"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <input type="submit" value="Search" id="search-button" />
+        <button>Get Curent Location</button>
+      </form>
+      <div class="city">
       <h2 id="city-name">Tehran</h2>
+      </div>
+      <div class="condition">
+        <span class="description"></span>
+        <div>
+          Wind Speed:
+          <span class="wind"> </span>
+        </div>
+        <div>
+          Humidity:
+          <span class="humidity"> </span>
+        </div>
+      </div>
+      <div class="temp">
       <h3 id="temperature-display"></h3>
-        <span id="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span>
-        
+      <span id="units"
+        ><a href="#" id="celsius-link" class="active">°C</a> |
+        <a href="#" id="fahrenheit-link">°F</a></span
+      >
+      <div>
+        <img
+        id="icon"
+        src=""
+       />
+      </div>
+      </div>
       
       <h4></h4>
       <div class="days">
@@ -75,17 +109,7 @@
           <div class="col">15°</div>
         </div>
       </div>
-      <form id="search-form">
-        <input
-          type="text"
-          placeholder="Enter city name..."
-          id="city-input"
-          spellcheck="false"
-          autocomplete="off"
-        />
-        <input type="submit" value="Search" id="search-button" />
-        <button>Get Curent Location</button>
-      </form>
+      
       <div class="me">
         <a href="https://github.com/aframim/vanilla-wether.app" target="_blank">
           Open source-code</a
